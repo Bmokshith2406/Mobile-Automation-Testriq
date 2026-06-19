@@ -1,0 +1,14 @@
+{
+  "step_index": 3,
+  "step_name": "3__step_3_58b7ea696c53",
+  "intent": "Type 'demo' into password input field.",
+  "started_at": "2026-03-01T14:08:54.024662+00:00",
+  "ended_at": "2026-03-01T14:08:54.065926+00:00",
+  "duration_sec": 0.0414,
+  "url": "https://parabank.parasoft.com/parabank/index.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "58b7ea696c53"
+}

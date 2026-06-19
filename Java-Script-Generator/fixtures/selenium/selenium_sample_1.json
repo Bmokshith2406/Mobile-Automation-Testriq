@@ -1,0 +1,39 @@
+{
+  "test_case": {
+    "test_case_id": "SELENIUM_DUCKDUCKGO_SEARCH_001",
+    "description": "Selenium test to search DuckDuckGo.",
+    "target_framework": "selenium",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to DuckDuckGo.",
+        "expected_outcome": "DuckDuckGo page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "selenium",
+          "raw_code": "driver.get(\"https://duckduckgo.com/\")"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Enter search query.",
+        "expected_outcome": "Search query entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "selenium",
+          "raw_code": "element = driver.find_element(By.NAME, \"q\")\nelement.send_keys(\"Selenium Python\")"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Click search button.",
+        "expected_outcome": "Search results appear.",
+        "matched_script": {
+          "language": "python",
+          "framework": "selenium",
+          "raw_code": "element = driver.find_element(By.CSS_SELECTOR, \"button[aria-label='Search']\")\nelement.click()"
+        }
+      }
+    ]
+  }
+}

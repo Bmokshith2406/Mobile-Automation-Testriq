@@ -1,0 +1,69 @@
+{
+  "test_case_id": "TC_PARABANK_END_TO_END_001",
+  "run_id": "20260619_044840",
+  "status": "failed",
+  "error": "AssertionError: Locator expected to be visible\nActual value: None\nError: element(s) not found \nCall log:\n  - Expect \"to_be_visible\" with timeout 5000ms\n  - waiting for get_by_role(\"textbox\", name=\"Last name\").first\n",
+  "steps": [
+    {
+      "step_index": 0,
+      "step_name": "0__step_0_3fda4f10f510",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 2.8328,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "3fda4f10f510"
+    },
+    {
+      "step_index": 1,
+      "step_name": "1__step_1_2f2a76d5f50f",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0509,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "2f2a76d5f50f"
+    },
+    {
+      "step_index": 2,
+      "step_name": "2__step_2_fa95d248d5c1",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.3442,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "fa95d248d5c1"
+    },
+    {
+      "step_index": 3,
+      "step_name": "3__step_3_07028434401c",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0256,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "07028434401c"
+    },
+    {
+      "step_index": 4,
+      "step_name": "4__step_4_416d099bf2f7",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0235,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "416d099bf2f7"
+    },
+    {
+      "step_index": 5,
+      "step_name": "5__step_5_5c3824615683",
+      "attempts": 2,
+      "max_retries": 1,
+      "duration_total_sec": 11.2641,
+      "status": "failed",
+      "flaky": false,
+      "step_code_hash": "5c3824615683"
+    }
+  ],
+  "failed_step_index": 5
+}

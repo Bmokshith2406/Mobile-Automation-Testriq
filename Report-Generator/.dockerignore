@@ -1,0 +1,16 @@
+.git
+.gitignore
+.pytest_cache
+__pycache__/
+*.py[cod]
+*.log
+.env
+.env.*
+venv/
+tests/
+sample/
+sample.zip
+index.html
+deploy.md
+README.md
+extract_template.py

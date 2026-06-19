@@ -1,0 +1,99 @@
+{
+  "test_case": {
+    "test_case_id": "TC_ORANGEHRM_EMPLOYEE_SEARCH_DATA_BUG_001",
+    "description": "OrangeHRM employee search flow using valid automation steps, but failing because the searched employee does not exist in the demo application data. This failure should not be self-healed.",
+    "target_framework": "playwright",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to OrangeHRM login page.",
+        "expected_outcome": "OrangeHRM login page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.goto(\"https://opensource-demo.orangehrmlive.com/\")"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Enter valid username.",
+        "expected_outcome": "Username should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='username']\", \"Admin\")"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Enter valid password.",
+        "expected_outcome": "Password should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='password']\", \"admin123\")"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Click Login button.",
+        "expected_outcome": "User should be logged in successfully.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"button[type='submit']\")"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Navigate to PIM module.",
+        "expected_outcome": "PIM employee management page should open.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"text=PIM\")"
+        }
+      },
+      {
+        "step_id": "STEP_06",
+        "description": "Search for a specific employee that is expected by the test case.",
+        "expected_outcome": "Employee search input should accept the employee name.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[placeholder='Type for hints...']\", \"Mokshith Balidi\")"
+        }
+      },
+      {
+        "step_id": "STEP_07",
+        "description": "Select employee from autocomplete search results.",
+        "expected_outcome": "Employee named Mokshith Balidi should appear in autocomplete results.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"text=Mokshith Balidi\")"
+        }
+      },
+      {
+        "step_id": "STEP_08",
+        "description": "Click Search button.",
+        "expected_outcome": "Employee search should be submitted.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"button:has-text('Search')\")"
+        }
+      },
+      {
+        "step_id": "STEP_09",
+        "description": "Verify employee appears in search results.",
+        "expected_outcome": "Employee Mokshith Balidi should be visible in the search results table.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"text=Mokshith Balidi\")"
+        }
+      }
+    ]
+  }
+}

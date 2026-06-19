@@ -1,0 +1,14 @@
+{
+  "step_index": 4,
+  "step_name": "4__step_4_52eba612da99",
+  "intent": "Click login submit button.",
+  "started_at": "2026-03-01T14:08:54.220035+00:00",
+  "ended_at": "2026-03-01T14:08:55.315827+00:00",
+  "duration_sec": 1.0959,
+  "url": "https://parabank.parasoft.com/parabank/overview.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "52eba612da99"
+}

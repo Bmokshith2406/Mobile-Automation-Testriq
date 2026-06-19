@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "c:\Users\Mokshith Balidi\Downloads\test_tc_parabank_end_to_end_001_b65826.py", line 80, in _guarded_step
+    await step_fn(page)
+  File "c:\Users\Mokshith Balidi\Downloads\test_tc_parabank_end_to_end_001_b65826.py", line 242, in _step_5_5c3824615683
+    await expect(target).to_be_visible(timeout=5000)
+  File "C:\Users\Mokshith Balidi\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\async_api\_generated.py", line 20378, in to_be_visible
+    await self._impl_obj.to_be_visible(visible=visible, timeout=timeout)
+  File "C:\Users\Mokshith Balidi\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_assertions.py", line 765, in to_be_visible
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "C:\Users\Mokshith Balidi\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_assertions.py", line 85, in _expect_impl
+    raise AssertionError(
+        f"{out_message}\nActual value: {actual}{error_message} {format_call_log(result.get('log'))}"
+    )
+AssertionError: Locator expected to be visible
+Actual value: None
+Error: element(s) not found 
+Call log:
+  - Expect "to_be_visible" with timeout 5000ms
+  - waiting for get_by_role("textbox", name="Last name").first
+

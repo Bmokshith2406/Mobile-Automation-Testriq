@@ -1,0 +1,14 @@
+{
+  "step_index": 5,
+  "step_name": "5__step_5_2b7ba04154aa",
+  "intent": "Assert text 'Accounts Overview' is visible.",
+  "started_at": "2026-03-01T14:08:55.983744+00:00",
+  "ended_at": "2026-03-01T14:08:56.002429+00:00",
+  "duration_sec": 0.0188,
+  "url": "https://parabank.parasoft.com/parabank/overview.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "2b7ba04154aa"
+}

@@ -1,0 +1,14 @@
+{
+  "step_index": 2,
+  "step_name": "2__step_2_fa95d248d5c1",
+  "intent": "Click Register link",
+  "started_at": "2026-06-19T04:51:21.572328+00:00",
+  "ended_at": "2026-06-19T04:51:21.916455+00:00",
+  "duration_sec": 0.3442,
+  "url": "https://parabank.parasoft.com/parabank/register.htm;jsessionid=036D6474BECC5B743AF8F299C7416DAA",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "fa95d248d5c1"
+}

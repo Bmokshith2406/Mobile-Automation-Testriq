@@ -1,0 +1,59 @@
+# .dockerignore
+# Excludes files from the Docker build context.
+# Keeps the image lean and prevents secrets / dev files from being baked in.
+
+# Version control
+.git/
+.gitignore
+
+# Secrets — NEVER bake into image; inject via env at runtime
+.env
+.env.*
+!.env.example
+
+# Python runtime artifacts
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Development tools
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.tox/
+
+# Generated outputs and logs — these should be mounted volumes in production
+outputs/
+logs/
+*.log
+logger.log
+service.log
+service_error.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Documentation (not needed at runtime)
+*.md
+implementation_plan.md
+fix_plan.md
+
+# Misc dev utilities
+fix_json.py
+scripts/
+fixtures/
+
+# Node (if any frontend tooling exists)
+node_modules/

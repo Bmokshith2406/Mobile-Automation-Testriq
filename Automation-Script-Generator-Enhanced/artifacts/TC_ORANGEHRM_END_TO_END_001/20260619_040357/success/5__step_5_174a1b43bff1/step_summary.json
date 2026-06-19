@@ -1,0 +1,14 @@
+{
+  "step_index": 5,
+  "step_name": "5__step_5_174a1b43bff1",
+  "intent": "Wait for element with text 'Dashboard' to be visible",
+  "started_at": "2026-06-19T04:05:56.535050+00:00",
+  "ended_at": "2026-06-19T04:05:56.998966+00:00",
+  "duration_sec": 0.464,
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "174a1b43bff1"
+}

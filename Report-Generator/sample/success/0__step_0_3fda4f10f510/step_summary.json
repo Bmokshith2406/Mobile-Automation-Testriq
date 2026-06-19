@@ -1,0 +1,14 @@
+{
+  "step_index": 0,
+  "step_name": "0__step_0_3fda4f10f510",
+  "intent": "Navigate to https://parabank.parasoft.com/parabank/index.htm",
+  "started_at": "2026-03-01T14:08:50.820645+00:00",
+  "ended_at": "2026-03-01T14:08:53.114207+00:00",
+  "duration_sec": 2.295,
+  "url": "https://parabank.parasoft.com/parabank/index.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "3fda4f10f510"
+}

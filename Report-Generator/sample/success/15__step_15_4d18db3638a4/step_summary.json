@@ -1,0 +1,14 @@
+{
+  "step_index": 15,
+  "step_name": "15__step_15_4d18db3638a4",
+  "intent": "Click link with text 'Log Out'.",
+  "started_at": "2026-03-01T14:08:58.976971+00:00",
+  "ended_at": "2026-03-01T14:08:59.982553+00:00",
+  "duration_sec": 1.0057,
+  "url": "https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "4d18db3638a4"
+}

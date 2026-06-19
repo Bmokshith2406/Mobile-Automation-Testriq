@@ -1,0 +1,11 @@
+<aside class="sidebar">
+    <h2>Execution Steps</h2>
+    <nav id="toc">
+        {% for step in data.steps %}
+        <a href="#{{ step.summary.step_index }}" class="nav-link" id="nav-{{ step.summary.step_index }}">
+            <span class="status-dot {{ step.summary.status }}"></span>
+            Step {{ step.summary.step_index }}
+        </a>
+        {% endfor %}
+    </nav>
+</aside>

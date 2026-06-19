@@ -1,0 +1,14 @@
+{
+  "step_index": 16,
+  "step_name": "16__step_1_2f2a76d5f50f",
+  "intent": "Assert username input field is visible.",
+  "started_at": "2026-03-01T14:09:00.401654+00:00",
+  "ended_at": "2026-03-01T14:09:00.461974+00:00",
+  "duration_sec": 0.0604,
+  "url": "https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "2f2a76d5f50f"
+}

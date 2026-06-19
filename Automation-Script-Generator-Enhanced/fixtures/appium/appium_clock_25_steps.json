@@ -1,0 +1,276 @@
+{
+  "test_case": {
+    "test_case_id": "APPIUM_CLOCK_ALARM_WORLD_TIMER_025",
+    "description": "Appium test for a deep Android Clock flow: launch Clock, create an alarm, label it, add a world clock city, configure a short timer, and open Stopwatch. Runtime device settings can still be overridden by Executor-Regenerator.",
+    "target_framework": "appium",
+    "appium_config": {
+      "device_name": "Pixel_7_API_36",
+      "platform_name": "Android",
+      "automation_name": "UiAutomator2",
+      "app_package": "com.google.android.deskclock",
+      "app_activity": "com.android.deskclock.DeskClock",
+      "app_wait_activity": "*",
+      "no_reset": true,
+      "relaunch_before_test": true,
+      "relaunch_before_step_retry": true
+    },
+    "prerequisites": [
+      {
+        "prerequisite_id": "PRE_01",
+        "description": "Android Clock is installed on the selected device. If the package differs, override app_package/app_activity in Executor-Regenerator's Appium device matrix."
+      }
+    ],
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Verify that the Clock app is open.",
+        "expected_outcome": "Clock app shows one of its main tabs.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Alarm' or @content-desc='Alarm' or @text='Clock' or @content-desc='Clock']\")\nassert element.is_displayed()"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Open the Alarm tab.",
+        "expected_outcome": "Alarm tab is selected.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Alarm' or @content-desc='Alarm']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Tap the add alarm button.",
+        "expected_outcome": "The alarm time picker opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@content-desc='Add alarm' or @text='Add alarm' or contains(@resource-id, ':id/fab')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Choose hour 7 for the alarm.",
+        "expected_outcome": "Hour 7 is selected in the time picker.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='7' or @content-desc='7']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Choose minute 30 for the alarm.",
+        "expected_outcome": "Minute 30 is selected in the time picker.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='30' or @content-desc='30' or contains(@content-desc, '30 minutes')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_06",
+        "description": "Confirm the new alarm.",
+        "expected_outcome": "The new alarm is saved.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='OK' or @content-desc='OK' or @text='Done' or @content-desc='Done']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_07",
+        "description": "Verify that the 7:30 alarm is displayed.",
+        "expected_outcome": "The alarm list contains the newly created 7:30 alarm.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, '7:30') or contains(@content-desc, '7:30')]\")\nassert element.is_displayed()"
+        }
+      },
+      {
+        "step_id": "STEP_08",
+        "description": "Open the alarm label editor.",
+        "expected_outcome": "Alarm label input dialog opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Label' or @content-desc='Label' or contains(@resource-id, ':id/edit_label')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_09",
+        "description": "Type Morning Demo as the alarm label.",
+        "expected_outcome": "Morning Demo is entered in the alarm label field.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@class='android.widget.EditText' or contains(@resource-id, ':id/label')]\")\nelement.clear()\nelement.send_keys(\"Morning Demo\")"
+        }
+      },
+      {
+        "step_id": "STEP_10",
+        "description": "Save the alarm label.",
+        "expected_outcome": "The alarm label is saved.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='OK' or @content-desc='OK' or @text='Save' or @content-desc='Save']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_11",
+        "description": "Return to the main alarm list.",
+        "expected_outcome": "The alarm list is visible again.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "driver.back()"
+        }
+      },
+      {
+        "step_id": "STEP_12",
+        "description": "Open the Clock tab.",
+        "expected_outcome": "World clock screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Clock' or @content-desc='Clock']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_13",
+        "description": "Tap the add city button.",
+        "expected_outcome": "The city search screen opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@content-desc='Add city' or @text='Add city' or contains(@resource-id, ':id/fab')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_14",
+        "description": "Type London in the city search field.",
+        "expected_outcome": "London is entered into the city search field.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@class='android.widget.EditText' or contains(@text, 'Search') or contains(@content-desc, 'Search')]\")\nelement.send_keys(\"London\")"
+        }
+      },
+      {
+        "step_id": "STEP_15",
+        "description": "Press Enter to submit the city search.",
+        "expected_outcome": "London search results are shown.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "driver.press_keycode(66)"
+        }
+      },
+      {
+        "step_id": "STEP_16",
+        "description": "Select London from the city search results.",
+        "expected_outcome": "London is added to the world clock.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'London') or contains(@content-desc, 'London')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_17",
+        "description": "Verify that London appears in the world clock list.",
+        "expected_outcome": "London is visible in the world clock list.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'London') or contains(@content-desc, 'London')]\")\nassert element.is_displayed()"
+        }
+      },
+      {
+        "step_id": "STEP_18",
+        "description": "Open the Timer tab.",
+        "expected_outcome": "Timer setup screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Timer' or @content-desc='Timer']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_19",
+        "description": "Tap digit 1 in the timer keypad.",
+        "expected_outcome": "Digit 1 is entered into the timer setup.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='1' or @content-desc='1']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_20",
+        "description": "Tap digit 0 in the timer keypad.",
+        "expected_outcome": "First zero is entered into the timer setup.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='0' or @content-desc='0']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_21",
+        "description": "Tap digit 0 again in the timer keypad.",
+        "expected_outcome": "Second zero is entered and the timer shows one minute.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='0' or @content-desc='0']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_22",
+        "description": "Start the timer.",
+        "expected_outcome": "The timer starts counting down.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Start' or @content-desc='Start']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_23",
+        "description": "Pause the running timer.",
+        "expected_outcome": "The timer is paused.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Pause' or @content-desc='Pause']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_24",
+        "description": "Reset the timer.",
+        "expected_outcome": "The timer returns to setup or idle state.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Reset' or @content-desc='Reset' or @text='Delete' or @content-desc='Delete']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_25",
+        "description": "Open the Stopwatch tab.",
+        "expected_outcome": "Stopwatch screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Stopwatch' or @content-desc='Stopwatch']\")\nelement.click()"
+        }
+      }
+    ]
+  }
+}

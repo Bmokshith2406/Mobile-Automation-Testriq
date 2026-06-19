@@ -1,0 +1,14 @@
+{
+  "step_index": 13,
+  "step_name": "13__step_13_9913e0b207ce",
+  "intent": "Click button with value 'Transfer'.",
+  "started_at": "2026-03-01T14:08:58.728890+00:00",
+  "ended_at": "2026-03-01T14:08:58.758948+00:00",
+  "duration_sec": 0.0301,
+  "url": "https://parabank.parasoft.com/parabank/transfer.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "9913e0b207ce"
+}

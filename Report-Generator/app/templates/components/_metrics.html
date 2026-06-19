@@ -1,0 +1,90 @@
+<div class="stats-container">
+  <div class="stat-card">
+    <div class="stat-label">Total Steps</div>
+    <div class="stat-value">{{ report.total_steps }}</div>
+    <div class="stat-unit">execution steps</div>
+  </div>
+  <div class="stat-card success">
+    <div class="stat-label">Passed Steps</div>
+    <div class="stat-value">{{ report.passed_steps }}</div>
+    <div class="stat-unit">completed successfully</div>
+  </div>
+  <div class="stat-card danger">
+    <div class="stat-label">Failed Steps</div>
+    <div class="stat-value">{{ report.failed_steps }}</div>
+    <div class="stat-unit">non-passing outcomes</div>
+  </div>
+  <div class="stat-card info">
+    <div class="stat-label">Total Duration</div>
+    <div class="stat-value">{{ report.total_duration }} s</div>
+    <div class="stat-unit">execution time</div>
+  </div>
+</div>
+
+<div class="summary-section">
+  <div class="progress-card">
+    <div class="progress-title-row">
+      <div class="progress-title">Execution Progress</div>
+      <div class="progress-value">{{ report.success_rate }}%</div>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: {{ report.success_rate }}%"></div>
+    </div>
+
+    <div class="narrative-card">
+      <div class="block-label">Executive Narrative</div>
+      <div class="block-content">
+        {{ report.overall_description or "AI enrichment unavailable for the overall execution." }}
+      </div>
+    </div>
+
+    {% if report.final_failure_explanation %}
+    <div class="narrative-card" style="border-left: 4px solid var(--danger); margin-top: 16px; background: rgba(239, 68, 68, 0.03);">
+      <div class="block-label" style="color: var(--danger); font-weight: 700;">Final Failure Explanation</div>
+      <div class="block-content" style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+        {% if report.final_failure_explanation.get('summary') %}
+          <div>
+            <strong style="color: var(--text-primary); font-size: 13px;">Summary</strong>
+            <p style="margin-top: 2px; line-height: 1.5;">{{ report.final_failure_explanation.get('summary') }}</p>
+          </div>
+        {% endif %}
+        {% if report.final_failure_explanation.get('failure_reason') %}
+          <div>
+            <strong style="color: var(--text-primary); font-size: 13px;">Failure Reason</strong>
+            <p style="margin-top: 2px; line-height: 1.5;">{{ report.final_failure_explanation.get('failure_reason') }}</p>
+          </div>
+        {% endif %}
+        {% if report.final_failure_explanation.get('repair_action') %}
+          <div>
+            <strong style="color: var(--text-primary); font-size: 13px;">Repair Action</strong>
+            <p style="margin-top: 2px; line-height: 1.5;">{{ report.final_failure_explanation.get('repair_action') }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="donut-card">
+    <div class="donut-wrapper">
+      <svg class="donut-svg" width="160" height="160">
+        <circle cx="80" cy="80" r="60" stroke="var(--bg-tertiary)" stroke-width="12" fill="none"/>
+        <circle
+          cx="80"
+          cy="80"
+          r="60"
+          stroke="var(--success)"
+          stroke-width="12"
+          fill="none"
+          stroke-dasharray="{{ report.success_rate }} 100"
+          pathLength="100"
+        />
+      </svg>
+      <div class="donut-center">
+        <div class="donut-value">{{ report.success_rate }}%</div>
+        <div class="donut-label">Success Rate</div>
+      </div>
+    </div>
+  </div>
+</div>

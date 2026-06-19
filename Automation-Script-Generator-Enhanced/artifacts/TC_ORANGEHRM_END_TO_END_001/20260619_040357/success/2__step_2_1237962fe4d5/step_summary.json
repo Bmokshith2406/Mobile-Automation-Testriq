@@ -1,0 +1,14 @@
+{
+  "step_index": 2,
+  "step_name": "2__step_2_1237962fe4d5",
+  "intent": "Enter username",
+  "started_at": "2026-06-19T04:05:54.441316+00:00",
+  "ended_at": "2026-06-19T04:05:54.496122+00:00",
+  "duration_sec": 0.0549,
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "1237962fe4d5"
+}

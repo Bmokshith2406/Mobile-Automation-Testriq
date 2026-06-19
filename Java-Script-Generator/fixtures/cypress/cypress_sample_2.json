@@ -1,0 +1,39 @@
+{
+  "test_case": {
+    "test_case_id": "CYPRESS_TODOMVC_ADD_002",
+    "description": "Cypress test to add a todo item in TodoMVC.",
+    "target_framework": "cypress",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to TodoMVC.",
+        "expected_outcome": "TodoMVC page should load.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.visit(\"https://demo.playwright.dev/todomvc/\");"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Enter new todo.",
+        "expected_outcome": "Todo entered.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.get(\".new-todo\").type(\"Buy groceries{enter}\");"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Verify todo added.",
+        "expected_outcome": "Todo is visible in the list.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.get(\".todo-list li\").should('have.text', 'Buy groceries');"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+motor
+pymongo
+sentence-transformers
+numpy
+pandas
+python-dotenv
+python-jose
+passlib[bcrypt]==1.7.4
+bcrypt==3.2.2
+openpyxl
+google-genai
+python-multipart
+pytest
+pytest-asyncio
+aioredis

@@ -1,0 +1,14 @@
+{
+  "step_index": 12,
+  "step_name": "12__step_12_477b6db4e226",
+  "intent": "Type '100' into input field with id 'amount'.",
+  "started_at": "2026-03-01T14:08:58.546549+00:00",
+  "ended_at": "2026-03-01T14:08:58.597635+00:00",
+  "duration_sec": 0.0512,
+  "url": "https://parabank.parasoft.com/parabank/transfer.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "477b6db4e226"
+}

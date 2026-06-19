@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+httpx
+python-multipart
+python-dotenv
+prometheus_client
+pydantic_settings
+pytest
+pytest-asyncio
+motor

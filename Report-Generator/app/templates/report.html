@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automation Execution Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'components/_styles.html' %}
+</head>
+<body>
+<a href="#main-content" class="sr-only">Skip to main content</a>
+
+<button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode (currently light mode)">🌙</button>
+
+<div class="container">
+  <main class="main-content" id="main-content">
+    <div class="header" id="overview">
+      <div class="header-left">
+        <div class="header-kicker">Execution Summary</div>
+        <h1>Automation Execution Report</h1>
+        <p class="header-description">
+          A consolidated view of the uploaded run, including execution health, detailed steps, and supporting artifacts.
+        </p>
+        <div class="testcase-panel">
+          <div class="testcase-label">Test Case</div>
+          <div class="testcase-name">{{ report.testcase_name }}</div>
+        </div>
+        <div class="header-meta">
+          <div class="meta-item">
+            <span class="meta-label">Generated</span>
+            <strong>{{ report.generated_at }}</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Started</span>
+            <strong>{{ report.started_at }}</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Finished</span>
+            <strong>{{ report.finished_at }}</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Format</span>
+            <strong>{{ report.source_format|upper }}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn" onclick="downloadPDF()" aria-label="Download report as PDF">Download PDF</button>
+      </div>
+    </div>
+
+    <div class="tabs-section" id="stats" role="tablist" aria-label="Report sections">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this, 'overview')" role="tab" aria-selected="true">Overview</button>
+        <button class="tab" onclick="switchTab(this, 'Execution_Video')" role="tab" aria-selected="false">Execution Video</button>
+        <button class="tab" onclick="switchTab(this, 'Final_Script')" role="tab" aria-selected="false">Final Script</button>
+        <button class="tab" onclick="switchTab(this, 'Repair_Report')" role="tab" aria-selected="false">Repair Report</button>
+      </div>
+      <div class="filters" role="group" aria-label="Filter steps by status">
+        <button class="filter-btn active" onclick="filterSteps('all', event)" aria-pressed="true">All Steps</button>
+        <button class="filter-btn passed" onclick="filterSteps('passed', event)" aria-pressed="false">✓ Passed</button>
+        <button class="filter-btn failed" onclick="filterSteps('failed', event)" aria-pressed="false">✕ Failed</button>
+      </div>
+    </div>
+
+    {% include 'components/_metrics.html' %}
+    {% include 'components/_steps.html' %}
+    {% include 'components/_artifacts.html' %}
+  </main>
+</div>
+
+<div id="imgModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Screenshot</div>
+      <button class="btn" onclick="closeModal()">✕ Close</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="canvas-wrapper">
+        <img id="modalImage" alt="Step screenshot preview" />
+        <canvas id="annotationCanvas"></canvas>
+      </div>
+
+      <div class="modal-tools">
+        <button class="tool-btn active" onclick="setTool('draw', event)">✏ Draw</button>
+        <button class="tool-btn" onclick="setTool('rect', event)">▭ Box</button>
+        <button class="tool-btn" onclick="setTool('text', event)">T Text</button>
+        <button class="tool-btn" onclick="clearCanvas()">🗑 Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'components/_scripts.html' %}
+</body>
+</html>

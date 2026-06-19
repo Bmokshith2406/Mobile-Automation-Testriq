@@ -1,0 +1,14 @@
+{
+  "step_index": 6,
+  "step_name": "6__step_6_59a25a3cbfcc",
+  "intent": "Click link with text 'Open New Account'.",
+  "started_at": "2026-03-01T14:08:56.083384+00:00",
+  "ended_at": "2026-03-01T14:08:56.512578+00:00",
+  "duration_sec": 0.4293,
+  "url": "https://parabank.parasoft.com/parabank/openaccount.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "59a25a3cbfcc"
+}

@@ -1,0 +1,14 @@
+{
+  "step_index": 1,
+  "step_name": "1__step_1_2f2a76d5f50f",
+  "intent": "Login panel should be displayed.",
+  "started_at": "2026-06-19T04:51:21.406414+00:00",
+  "ended_at": "2026-06-19T04:51:21.457205+00:00",
+  "duration_sec": 0.0509,
+  "url": "https://parabank.parasoft.com/parabank/index.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "2f2a76d5f50f"
+}

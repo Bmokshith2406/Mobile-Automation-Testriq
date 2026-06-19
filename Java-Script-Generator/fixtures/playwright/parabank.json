@@ -1,0 +1,69 @@
+{
+  "test_case": {
+    "test_case_id": "TC_PARABANK_LOGIN_001",
+    "description": "Parabank login happy path flow using strictly atomic steps.",
+    "target_framework": "playwright",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to Parabank login page.",
+        "expected_outcome": "Parabank login page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.goto(\"https://parabank.parasoft.com/parabank/index.htm\")"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Verify login form is visible.",
+        "expected_outcome": "Login form should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"input[name='username']\")"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Enter username.",
+        "expected_outcome": "Username should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='username']\", \"john\")"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Enter password.",
+        "expected_outcome": "Password should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='password']\", \"demo\")"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Click Log In button.",
+        "expected_outcome": "Login should be submitted.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"input[value='Log In']\")"
+        }
+      },
+      {
+        "step_id": "STEP_06",
+        "description": "Verify Accounts Overview page is visible.",
+        "expected_outcome": "User should be successfully logged in.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"text=Accounts Overview\")"
+        }
+      }
+    ]
+  }
+}

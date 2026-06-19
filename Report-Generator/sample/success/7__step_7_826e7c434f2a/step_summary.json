@@ -1,0 +1,14 @@
+{
+  "step_index": 7,
+  "step_name": "7__step_7_826e7c434f2a",
+  "intent": "Select option value '1' in account type dropdown.",
+  "started_at": "2026-03-01T14:08:56.616506+00:00",
+  "ended_at": "2026-03-01T14:08:56.661283+00:00",
+  "duration_sec": 0.0449,
+  "url": "https://parabank.parasoft.com/parabank/openaccount.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "826e7c434f2a"
+}

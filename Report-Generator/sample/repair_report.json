@@ -1,0 +1,20 @@
+{
+  "final_status": "passed",
+  "iterations": 3,
+  "repairs": [
+    {
+      "step_id": "10__step_10_1997a082a4fb",
+      "attempt": 1,
+      "outcome": "patched",
+      "timestamp": "2026-03-01T14:08:07.100919+00:00"
+    },
+    {
+      "step_id": "11__step_11_70d770862a49",
+      "attempt": 1,
+      "outcome": "patched",
+      "timestamp": "2026-03-01T14:08:48.273567+00:00"
+    }
+  ],
+  "execution_id": "9db6cdf1",
+  "timestamp": "2026-03-01T14:09:01.059393+00:00"
+}

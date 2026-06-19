@@ -1,0 +1,55 @@
+<div class="steps-container" id="steps">
+  {% for step in report.steps %}
+  <div class="step {{ step.status }}" data-step-id="{{ step.step_id }}" data-status="{{ step.status }}" id="{{ step.step_id }}" tabindex="0">
+    <div class="step-header" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-title">STEP {{ step.index }}</div>
+        <div class="step-subtitle">{{ step.intent }}</div>
+      </div>
+      <div class="step-right">
+        <span class="badge {{ step.status }}">{{ step.status|upper }}</span>
+        <span class="step-duration">{{ step.duration }} s</span>
+        <div class="step-toggle">▼</div>
+      </div>
+    </div>
+
+    <div class="step-body">
+      <div class="step-body-grid">
+        <div class="block">
+          <span class="block-label">Intent</span>
+          <div class="block-content">{{ step.intent }}</div>
+        </div>
+
+        <div class="block ai-block">
+          <span class="block-label">Step Summary</span>
+          <div class="block-content">{{ step.ai_summary }}</div>
+        </div>
+
+        <div class="block">
+          <span class="block-label">Execution Timestamp</span>
+          <div class="block-content">{{ step.timestamp }}</div>
+        </div>
+
+        <div class="block">
+          <span class="block-label">Attempts</span>
+          <div class="block-content">{{ step.attempts }} / {{ step.max_retries if step.max_retries else step.attempts }}</div>
+        </div>
+
+        {% if step.url %}
+        <div class="block">
+          <span class="block-label">URL</span>
+          <div class="block-content"><a href="{{ step.url }}" target="_blank" rel="noopener noreferrer">{{ step.url }}</a></div>
+        </div>
+        {% endif %}
+      </div>
+
+      {% if step.screenshot_data %}
+      <div class="screenshot-wrapper">
+        <span class="screenshot-label">Screenshot</span>
+        <img class="screenshot-img" src="data:{{ step.screenshot_media_type }};base64,{{ step.screenshot_data }}" alt="Screenshot for step {{ step.index }}" onclick="openModal(this, 'STEP {{ step.index }}')" />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

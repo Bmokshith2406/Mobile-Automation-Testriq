@@ -1,0 +1,14 @@
+{
+  "step_index": 6,
+  "step_name": "6__step_6_c2c1b525b933",
+  "intent": "Click PIM menu",
+  "started_at": "2026-06-19T04:05:57.978269+00:00",
+  "ended_at": "2026-06-19T04:05:59.302845+00:00",
+  "duration_sec": 1.3247,
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "c2c1b525b933"
+}

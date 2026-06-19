@@ -1,0 +1,179 @@
+{
+  "test_case": {
+    "test_case_id": "TC_ORANGEHRM_END_TO_END_001",
+    "description": "End-to-end OrangeHRM happy path flow using strictly atomic steps.",
+    "target_framework": "playwright",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to OrangeHRM login page.",
+        "expected_outcome": "OrangeHRM login page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.goto(\"https://opensource-demo.orangehrmlive.com/\")"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Verify login form is visible.",
+        "expected_outcome": "Login form should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"input[name='username']\")"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Enter username.",
+        "expected_outcome": "Username should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='username']\", \"Admin\")"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Enter password.",
+        "expected_outcome": "Password should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='password']\", \"admin123\")"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Click Login button.",
+        "expected_outcome": "Login should be submitted.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"button[type='submit']\")"
+        }
+      },
+      {
+        "step_id": "STEP_06",
+        "description": "Verify dashboard is visible.",
+        "expected_outcome": "Dashboard page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"text=Dashboard\")"
+        }
+      },
+      {
+        "step_id": "STEP_07",
+        "description": "Click PIM menu.",
+        "expected_outcome": "PIM module should open.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"text=PIM\")"
+        }
+      },
+      {
+        "step_id": "STEP_08",
+        "description": "Click Add button.",
+        "expected_outcome": "Add Employee form should open.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"text=Add Employee\")"
+        }
+      },
+      {
+        "step_id": "STEP_09",
+        "description": "Verify Add Employee form is visible.",
+        "expected_outcome": "Add Employee form should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"input[name='firstName']\")"
+        }
+      },
+      {
+        "step_id": "STEP_10",
+        "description": "Enter first name.",
+        "expected_outcome": "First name should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='firstName']\", \"John\")"
+        }
+      },
+      {
+        "step_id": "STEP_11",
+        "description": "Enter middle name.",
+        "expected_outcome": "Middle name should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='middleName']\", \"A\")"
+        }
+      },
+      {
+        "step_id": "STEP_12",
+        "description": "Enter last name.",
+        "expected_outcome": "Last name should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='lastName']\", \"Doe\")"
+        }
+      },
+      {
+        "step_id": "STEP_13",
+        "description": "Click Save button.",
+        "expected_outcome": "Employee should be created.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"button:has-text('Save')\")"
+        }
+      },
+      {
+        "step_id": "STEP_14",
+        "description": "Verify Personal Details page is visible.",
+        "expected_outcome": "Personal Details page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"text=Personal Details\")"
+        }
+      },
+      {
+        "step_id": "STEP_15",
+        "description": "Click user dropdown.",
+        "expected_outcome": "User menu should open.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\".oxd-userdropdown-name\")"
+        }
+      },
+      {
+        "step_id": "STEP_16",
+        "description": "Click Logout.",
+        "expected_outcome": "User should be logged out.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"text=Logout\")"
+        }
+      },
+      {
+        "step_id": "STEP_17",
+        "description": "Verify login page is visible.",
+        "expected_outcome": "Login page should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"input[name='username']\")"
+        }
+      }
+    ]
+  }
+}

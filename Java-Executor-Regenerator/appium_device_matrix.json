@@ -1,0 +1,17 @@
+{
+  "devices": [
+    {
+      "label": "Pixel 7 Local GCP",
+      "slug": "pixel_7_local_gcp",
+      "device_name": "Pixel_7_API_36",
+      "platform_name": "Android",
+      "udid": "emulator-5554",
+      "app_package": "com.google.android.deskclock",
+      "app_activity": "com.android.deskclock.DeskClock",
+      "app_wait_activity": "*",
+      "no_reset": true,
+      "relaunch_before_test": true,
+      "relaunch_before_step_retry": true
+    }
+  ]
+}

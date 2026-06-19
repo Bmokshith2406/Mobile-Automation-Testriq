@@ -1,0 +1,14 @@
+{
+  "step_index": 4,
+  "step_name": "4__step_4_416d099bf2f7",
+  "intent": "Enter first name",
+  "started_at": "2026-06-19T04:51:22.638439+00:00",
+  "ended_at": "2026-06-19T04:51:22.661787+00:00",
+  "duration_sec": 0.0235,
+  "url": "https://parabank.parasoft.com/parabank/register.htm;jsessionid=036D6474BECC5B743AF8F299C7416DAA",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "416d099bf2f7"
+}

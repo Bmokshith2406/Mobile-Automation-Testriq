@@ -1,0 +1,80 @@
+"Raw Method"
+"async def _step_0_3fda4f10f510(page):
+    await page.goto('https://parabank.parasoft.com/parabank/index.htm', wait_until='domcontentloaded')"
+"async def _step_1_2f2a76d5f50f(page):
+    await page.wait_for_selector('[name=""username""]', timeout=10000, state='visible')
+    locator = page.locator('[name=""username""]')
+    # [ASSERT]
+    await expect(locator.first).to_be_visible(timeout=5000)"
+"async def _step_2_e35ecbfe67d3(page):
+    await page.wait_for_selector(""input[name='username']"", timeout=10000, state='visible')
+    locator = page.locator(""input[name='username']"")
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.fill('john')"
+"async def _step_3_58b7ea696c53(page):
+    await page.wait_for_selector(""input[name='password']"", timeout=10000, state='visible')
+    locator = page.locator(""input[name='password']"")
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.fill('demo')"
+"async def _step_4_52eba612da99(page):
+    await page.wait_for_selector(""input[type='submit']"", timeout=10000, state='visible')
+    locator = page.locator(""input[type='submit']"")
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.click()"
+"async def _step_5_2b7ba04154aa(page):
+    locator = page.get_by_role('heading', name='Accounts Overview')
+    # [ASSERT]
+    await expect(locator.first).to_be_visible(timeout=5000)"
+"async def _step_6_59a25a3cbfcc(page):
+    locator = page.locator(""a:has-text('Open New Account')"")
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.click()"
+"async def _step_7_826e7c434f2a(page):
+    await page.wait_for_selector('select#type', timeout=10000, state='visible')
+    locator = page.locator('select#type')
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.select_option('1')"
+"async def _step_8_fe47d5187f7a(page):
+    locator = page.get_by_role('button', name='Open New Account')
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.click()"
+"async def _step_9_081c1ae16f37(page):
+    locator = page.locator(""//*[contains(., 'Congratulations, your account is now open.')]"")
+    # [ASSERT]
+    await expect(locator.first).to_be_visible(timeout=5000)"
+"async def _step_10_1997a082a4fb(page):
+    locator = page.locator(""a:has-text('Accounts Overview')"")
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.click()"
+"async def _step_11_70d770862a49(page):
+    locator = page.locator(""a:has-text('Transfer Funds')"")
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.click()"
+"async def _step_12_477b6db4e226(page):
+    await page.wait_for_selector('#amount', timeout=10000, state='visible')
+    locator = page.locator('#amount')
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.fill('100')"
+"async def _step_13_9913e0b207ce(page):
+    locator = page.get_by_role('button', name='Transfer')
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.click()"
+"async def _step_14_b8aa77d39825(page):
+    locator = page.locator(""//*[normalize-space()='Transfer Complete!']"")
+    # [ASSERT]
+    await expect(locator.first).to_be_visible(timeout=5000)"
+"async def _step_15_4d18db3638a4(page):
+    locator = page.locator(""a:has-text('Log Out')"")
+    target = locator.first
+    await expect(target).to_be_visible(timeout=5000)
+    await target.click()"

@@ -1,0 +1,59 @@
+{
+  "test_case": {
+    "test_case_id": "CYPRESS_SAUCEDEMO_LOGIN_001",
+    "description": "Cypress happy path login for Saucedemo.",
+    "target_framework": "cypress",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to saucedemo login page.",
+        "expected_outcome": "Login page should load.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.visit(\"https://www.saucedemo.com/\");"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Enter username.",
+        "expected_outcome": "Username entered.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.get(\"[data-test='username']\").type(\"standard_user\");"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Enter password.",
+        "expected_outcome": "Password entered.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.get(\"[data-test='password']\").type(\"secret_sauce\");"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Click Login.",
+        "expected_outcome": "User is logged in.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.get(\"[data-test='login-button']\").click();"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Verify inventory page.",
+        "expected_outcome": "Inventory is visible.",
+        "matched_script": {
+          "language": "javascript",
+          "framework": "cypress",
+          "raw_code": "cy.url().should('include', '/inventory.html');"
+        }
+      }
+    ]
+  }
+}

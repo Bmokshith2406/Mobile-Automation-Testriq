@@ -1,0 +1,14 @@
+{
+  "step_index": 0,
+  "step_name": "0__step_0_ecb40f97ce06",
+  "intent": "Navigate to OrangeHRM login page",
+  "started_at": "2026-06-19T04:05:47.062730+00:00",
+  "ended_at": "2026-06-19T04:05:53.153609+00:00",
+  "duration_sec": 6.0934,
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "ecb40f97ce06"
+}

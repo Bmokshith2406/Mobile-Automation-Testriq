@@ -1,0 +1,215 @@
+{
+  "test_case": {
+    "test_case_id": "APPIUM_CANVA_CREATE_DESIGN_020",
+    "description": "Appium test for a deep Canva mobile flow: open Canva, search for a design type, create a design, add/edit content, preview sharing/export options, and return safely. Runtime device and app capabilities are supplied by Executor-Regenerator.",
+    "target_framework": "appium",
+    "prerequisites": [
+      {
+        "prerequisite_id": "PRE_01",
+        "description": "Canva app is installed and the user is already signed in. Executor-Regenerator supplies the Appium capabilities for the selected local, BrowserStack, or Sauce device."
+      }
+    ],
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Verify that the Canva home screen is displayed.",
+        "expected_outcome": "The Canva home screen or Home tab is visible.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Home' or @content-desc='Home' or @label='Home' or @name='Home']\")\nassert element.is_displayed()"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Open the Canva search field.",
+        "expected_outcome": "The search input is focused.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Search') or contains(@content-desc, 'Search') or contains(@label, 'Search') or contains(@name, 'Search')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Search for Instagram Post templates.",
+        "expected_outcome": "Instagram Post is typed into the search field.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Search') or contains(@content-desc, 'Search') or contains(@label, 'Search') or contains(@name, 'Search')]\")\nelement.send_keys(\"Instagram Post\")"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Tap the Instagram Post search suggestion.",
+        "expected_outcome": "Canva opens Instagram Post search results.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Instagram Post') or contains(@content-desc, 'Instagram Post') or contains(@label, 'Instagram Post') or contains(@name, 'Instagram Post')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Verify that Instagram Post results are displayed.",
+        "expected_outcome": "The Instagram Post results page is visible.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Instagram Post') or contains(@content-desc, 'Instagram Post') or contains(@label, 'Instagram Post') or contains(@name, 'Instagram Post')]\")\nassert element.is_displayed()"
+        }
+      },
+      {
+        "step_id": "STEP_06",
+        "description": "Choose a blank Instagram Post design.",
+        "expected_outcome": "A blank design canvas opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Blank') or contains(@content-desc, 'Blank') or contains(@label, 'Blank') or contains(@name, 'Blank')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_07",
+        "description": "Verify that the Canva editor canvas is open.",
+        "expected_outcome": "The editor toolbar or Add button is visible.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Add' or @content-desc='Add' or @label='Add' or @name='Add' or @content-desc='Plus' or @name='Plus']\")\nassert element.is_displayed()"
+        }
+      },
+      {
+        "step_id": "STEP_08",
+        "description": "Open the Add panel.",
+        "expected_outcome": "The Add panel opens with design element options.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Add' or @content-desc='Add' or @label='Add' or @name='Add' or @content-desc='Plus' or @name='Plus']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_09",
+        "description": "Open the Text option from the Add panel.",
+        "expected_outcome": "Text insertion options are displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Text' or @content-desc='Text' or @label='Text' or @name='Text']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_10",
+        "description": "Add a heading text element.",
+        "expected_outcome": "A heading text box is added to the design.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Heading') or contains(@content-desc, 'Heading') or contains(@label, 'Heading') or contains(@name, 'Heading')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_11",
+        "description": "Select the inserted heading text box.",
+        "expected_outcome": "The heading text box is selected for editing.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Heading') or contains(@text, 'Your text') or contains(@content-desc, 'Heading') or contains(@label, 'Heading') or contains(@name, 'Heading')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_12",
+        "description": "Replace the heading with campaign text.",
+        "expected_outcome": "The heading reads Summer Launch.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@class='android.widget.EditText' or @type='XCUIElementTypeTextView' or @type='XCUIElementTypeTextField']\")\nelement.clear()\nelement.send_keys(\"Summer Launch\")"
+        }
+      },
+      {
+        "step_id": "STEP_13",
+        "description": "Confirm the text edit.",
+        "expected_outcome": "The edited heading is committed to the canvas.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Done' or @content-desc='Done' or @label='Done' or @name='Done' or @text='Apply' or @content-desc='Apply']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_14",
+        "description": "Open the Add panel again.",
+        "expected_outcome": "The Add panel is available for adding another element.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Add' or @content-desc='Add' or @label='Add' or @name='Add' or @content-desc='Plus' or @name='Plus']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_15",
+        "description": "Open Elements from the Add panel.",
+        "expected_outcome": "Canva Elements options are displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Elements' or @content-desc='Elements' or @label='Elements' or @name='Elements']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_16",
+        "description": "Search elements for star.",
+        "expected_outcome": "Star is entered in the elements search field.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'Search') or contains(@content-desc, 'Search') or contains(@label, 'Search') or contains(@name, 'Search')]\")\nelement.send_keys(\"star\")"
+        }
+      },
+      {
+        "step_id": "STEP_17",
+        "description": "Select a star element from the results.",
+        "expected_outcome": "A star graphic is added to the design.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[contains(@text, 'star') or contains(@text, 'Star') or contains(@content-desc, 'star') or contains(@content-desc, 'Star') or contains(@label, 'Star') or contains(@name, 'Star')]\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_18",
+        "description": "Open the share or export menu.",
+        "expected_outcome": "The share/export options sheet opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Share' or @content-desc='Share' or @label='Share' or @name='Share' or @content-desc='Export' or @name='Export']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_19",
+        "description": "Verify that the Download option is available.",
+        "expected_outcome": "Download appears in the share/export menu.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Download' or @content-desc='Download' or @label='Download' or @name='Download']\")\nassert element.is_displayed()"
+        }
+      },
+      {
+        "step_id": "STEP_20",
+        "description": "Close the share/export menu and return to the editor.",
+        "expected_outcome": "The Canva editor is displayed again without starting a download.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "driver.back()"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,310 @@
+<script>
+
+  let currentTool = 'draw';
+  let drawing = false;
+  let ctx, canvas;
+  let startX, startY;
+
+
+    // ============================
+    // DARK MODE
+    // ============================
+
+  function toggleDarkMode() {
+    const body = document.body;
+    const btn = document.querySelector('.theme-toggle');
+
+    const isDark = body.classList.toggle('dark-mode');
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    btn.textContent = isDark ? '☀️' : '🌙';
+    btn.setAttribute(
+        'aria-label',
+        `Toggle dark mode (currently ${isDark ? 'dark' : 'light'} mode)`
+    );
+    }
+
+  // Check dark mode preference on load
+  function initDarkMode() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+    
+    if (shouldBeDark) {
+      document.body.classList.add('dark-mode');
+      document.querySelector('.theme-toggle').textContent = '☀️';
+      document.querySelector('.theme-toggle').setAttribute('aria-label', 'Toggle dark mode (currently dark mode)');
+    }
+  }
+  
+  function toggleRepair(idx) {
+    const row = document.getElementById(`repair-${idx}`);
+    if (!row) return;
+
+    if (row.style.display === "none" || row.style.display === "") {
+      row.style.display = "table-row";
+    } else {
+      row.style.display = "none";
+    }
+  }
+
+  // ========================================
+  // SCRIPT COPY & DOWNLOAD
+  // ========================================
+  function copyScript() {
+    const scriptContent = document.getElementById('scriptContainer').innerText;
+    navigator.clipboard.writeText(scriptContent).then(() => {
+      const feedback = document.getElementById('copyFeedback');
+      feedback.style.display = 'block';
+      setTimeout(() => {
+        feedback.style.display = 'none';
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy:', err);
+      alert('Failed to copy script. Please try again.');
+    });
+  }
+
+  function downloadScript(filename) {
+    const scriptContent = document.getElementById('scriptContainer').innerText;
+    const blob = new Blob([scriptContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename || 'automation_script.py';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // ========================================
+  // KEYBOARD NAVIGATION
+  // ========================================
+  function setupKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+      // Tab navigation through sections
+      if (e.key === 'Tab') {
+        // Default browser tab behavior
+        return;
+      }
+      
+      // Escape key for modal
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+
+      // Ctrl/Cmd + C for copy in script section
+      if ((e.ctrlKey || e.metaKey) && e.key === 'c' && document.getElementById('scriptContainer')) {
+        const scriptEl = document.getElementById('scriptContainer');
+        if (scriptEl.parentElement.parentElement.offsetParent !== null) {
+          e.preventDefault();
+          copyScript();
+        }
+      }
+
+      // Arrow keys to navigate steps
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        const steps = Array.from(document.querySelectorAll('.step'));
+        const activeStep = document.activeElement.closest('.step');
+        if (!activeStep || steps.length === 0) return;
+
+        const index = steps.indexOf(activeStep);
+        let nextIndex = e.key === 'ArrowDown' ? index + 1 : index - 1;
+        
+        if (nextIndex >= 0 && nextIndex < steps.length) {
+          steps[nextIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          steps[nextIndex].focus();
+        }
+      }
+    });
+  }
+
+  // Tab switching
+  function switchTab(el, tab) {
+    document.querySelectorAll('.tab').forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    el.classList.add('active');
+    el.setAttribute('aria-selected', 'true');
+
+    const stepsContainer = document.querySelector('.steps-container');
+
+    // Handle overview tab - hide tab-content, show timeline and steps
+    if (tab === 'overview') {
+      document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+      if (stepsContainer) {
+        stepsContainer.style.display = 'flex';
+      }
+    } else {
+      // Hide overview content for other tabs
+      if (stepsContainer) {
+        stepsContainer.style.display = 'none';
+      }
+      // Show the selected tab content
+      document.querySelectorAll('.tab-content').forEach(c => {
+        c.style.display = c.dataset.tab === tab ? 'block' : 'none';
+      });
+    }
+  }
+
+
+  // PDF download
+  function downloadPDF() {
+    window.print();
+  }
+
+  // Filter steps
+  function filterSteps(status, ev) {
+    document.querySelectorAll('.step').forEach(step => {
+      step.style.display =
+        status === 'all' || step.dataset.status === status ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-pressed', 'false');
+    });
+
+    if (ev) {
+      ev.target.classList.add('active');
+      ev.target.setAttribute('aria-pressed', 'true');
+    }
+  }
+
+
+  // Scroll to step
+  function scrollToStep(stepId) {
+    const el = document.getElementById(stepId);
+    if (!el) return;
+
+    // Ensure step is visible
+    el.style.display = 'block';
+
+    // Expand step
+    el.classList.add('open');
+
+    // Scroll
+    el.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+
+
+  // Toggle step open/close
+  function toggleStep(el) {
+    const step = el.closest('.step');
+    if (step) step.classList.toggle('open');
+  }
+
+
+  // Modal functions
+  function openModal(img, title) {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+
+    modal.classList.add('open');
+    modalImg.src = img.src;
+    modalTitle.innerText = title;
+
+    setupCanvas();
+  }
+
+  function closeModal() {
+    document.getElementById('imgModal').classList.remove('open');
+  }
+
+  function setTool(tool, ev) {
+    currentTool = tool;
+    document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+    if (ev) ev.target.classList.add('active');
+  }
+
+
+  function setupCanvas() {
+    const img = document.getElementById('modalImage');
+    canvas = document.getElementById('annotationCanvas');
+
+    img.onload = () => {
+      canvas.width = img.clientWidth;
+      canvas.height = img.clientHeight;
+
+      ctx = canvas.getContext('2d');
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 2;
+
+      canvas.onmousedown = startDraw;
+      canvas.onmousemove = drawMove;
+      canvas.onmouseup = endDraw;
+    };
+  }
+
+
+  function startDraw(e) {
+    drawing = true;
+    startX = e.offsetX;
+    startY = e.offsetY;
+
+    if (currentTool === 'draw') {
+      ctx.beginPath();
+      ctx.moveTo(startX, startY);
+    }
+  }
+
+  function drawMove(e) {
+    if (!drawing) return;
+
+    if (currentTool === 'draw') {
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+    }
+  }
+
+  function endDraw(e) {
+    if (!drawing) return;
+    drawing = false;
+
+    if (currentTool === 'rect') {
+      const w = e.offsetX - startX;
+      const h = e.offsetY - startY;
+      ctx.strokeRect(startX, startY, w, h);
+    }
+
+    if (currentTool === 'text') {
+      const text = prompt('Enter annotation:');
+      if (text) {
+        ctx.fillStyle = '#ef4444';
+        ctx.font = '16px sans-serif';
+        ctx.fillText(text, startX, startY);
+      }
+    }
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Print setup
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('.step').forEach(step => {
+      step.classList.add('open');
+    });
+  });
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    initDarkMode();
+    setupKeyboardNavigation();
+  });
+
+</script>

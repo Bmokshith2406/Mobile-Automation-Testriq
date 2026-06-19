@@ -1,0 +1,14 @@
+{
+  "step_index": 9,
+  "step_name": "9__step_9_f2be48bb22e9",
+  "intent": "Assert text 'Congratulations, your account is now open.' is visible.",
+  "started_at": "2026-03-01T14:08:56.979765+00:00",
+  "ended_at": "2026-03-01T14:08:56.993710+00:00",
+  "duration_sec": 0.0141,
+  "url": "https://parabank.parasoft.com/parabank/openaccount.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "f2be48bb22e9"
+}

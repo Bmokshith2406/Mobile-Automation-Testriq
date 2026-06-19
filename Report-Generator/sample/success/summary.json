@@ -1,0 +1,179 @@
+{
+  "test_case_id": "TC_PARABANK_END_TO_END_001",
+  "run_id": "20260301_125049",
+  "status": "passed",
+  "error": null,
+  "steps": [
+    {
+      "step_index": 0,
+      "step_name": "0__step_0_3fda4f10f510",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 2.295,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "3fda4f10f510"
+    },
+    {
+      "step_index": 1,
+      "step_name": "1__step_1_2f2a76d5f50f",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0574,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "2f2a76d5f50f"
+    },
+    {
+      "step_index": 2,
+      "step_name": "2__step_2_e35ecbfe67d3",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0334,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "e35ecbfe67d3"
+    },
+    {
+      "step_index": 3,
+      "step_name": "3__step_3_58b7ea696c53",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0414,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "58b7ea696c53"
+    },
+    {
+      "step_index": 4,
+      "step_name": "4__step_4_52eba612da99",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 1.0959,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "52eba612da99"
+    },
+    {
+      "step_index": 5,
+      "step_name": "5__step_5_2b7ba04154aa",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0188,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "2b7ba04154aa"
+    },
+    {
+      "step_index": 6,
+      "step_name": "6__step_6_59a25a3cbfcc",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.4293,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "59a25a3cbfcc"
+    },
+    {
+      "step_index": 7,
+      "step_name": "7__step_7_826e7c434f2a",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0449,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "826e7c434f2a"
+    },
+    {
+      "step_index": 8,
+      "step_name": "8__step_8_fe47d5187f7a",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0351,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "fe47d5187f7a"
+    },
+    {
+      "step_index": 9,
+      "step_name": "9__step_9_f2be48bb22e9",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0141,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "f2be48bb22e9"
+    },
+    {
+      "step_index": 10,
+      "step_name": "10__step_10_1997a082a4fb",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.3924,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "1997a082a4fb"
+    },
+    {
+      "step_index": 11,
+      "step_name": "11__step_11_70d770862a49",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.7453,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "70d770862a49"
+    },
+    {
+      "step_index": 12,
+      "step_name": "12__step_12_477b6db4e226",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0512,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "477b6db4e226"
+    },
+    {
+      "step_index": 13,
+      "step_name": "13__step_13_9913e0b207ce",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0301,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "9913e0b207ce"
+    },
+    {
+      "step_index": 14,
+      "step_name": "14__step_14_8f9d6f18ef3b",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0061,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "8f9d6f18ef3b"
+    },
+    {
+      "step_index": 15,
+      "step_name": "15__step_15_4d18db3638a4",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 1.0057,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "4d18db3638a4"
+    },
+    {
+      "step_index": 16,
+      "step_name": "16__step_1_2f2a76d5f50f",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0604,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "2f2a76d5f50f"
+    }
+  ],
+  "failed_step_index": null
+}

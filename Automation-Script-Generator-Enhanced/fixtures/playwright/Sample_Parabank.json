@@ -1,0 +1,234 @@
+{
+  "test_case": {
+    "test_case_id": "TC_PARABANK_END_TO_END_001",
+    "description": "End-to-end ParaBank happy path flow using strictly atomic steps.",
+    "target_framework": "playwright",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to ParaBank home page.",
+        "expected_outcome": "ParaBank home page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.goto(\"https://parabank.parasoft.com/parabank/index.htm\")"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Verify login panel is visible.",
+        "expected_outcome": "Login panel should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"input[name='username']\")"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Click Register link.",
+        "expected_outcome": "Registration page should open.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"a[href*='register.htm']\")"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Verify registration form is visible.",
+        "expected_outcome": "Registration form should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"input[name='customer.firstName']\")"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Enter first name.",
+        "expected_outcome": "First name should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='customer.firstName']\", \"John\")"
+        }
+      },
+      {
+        "step_id": "STEP_06",
+        "description": "Enter last name.",
+        "expected_outcome": "Last name should be entered."
+      },
+      {
+        "step_id": "STEP_07",
+        "description": "Enter street address.",
+        "expected_outcome": "Street address should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='customer.address.street']\", \"123 Test Street\")"
+        }
+      },
+      {
+        "step_id": "STEP_08",
+        "description": "Enter city.",
+        "expected_outcome": "City should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='customer.address.city']\", \"Hyderabad\")"
+        }
+      },
+      {
+        "step_id": "STEP_09",
+        "description": "Enter state.",
+        "expected_outcome": "State should be entered."
+      },
+      {
+        "step_id": "STEP_10",
+        "description": "Enter zip code.",
+        "expected_outcome": "Zip code should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='customer.address.zipCode']\", \"500081\")"
+        }
+      },
+      {
+        "step_id": "STEP_11",
+        "description": "Enter phone number.",
+        "expected_outcome": "Phone number should be entered."
+      },
+      {
+        "step_id": "STEP_12",
+        "description": "Enter SSN.",
+        "expected_outcome": "SSN should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='customer.ssn']\", \"123456789\")"
+        }
+      },
+      {
+        "step_id": "STEP_13",
+        "description": "Enter unique username.",
+        "expected_outcome": "Username should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "import time\nusername = f\"auto_user_{int(time.time())}\"\nawait page.fill(\"input[name='customer.username']\", username)"
+        }
+      },
+      {
+        "step_id": "STEP_14",
+        "description": "Enter password.",
+        "expected_outcome": "Password should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='customer.password']\", \"Test@12345\")"
+        }
+      },
+      {
+        "step_id": "STEP_15",
+        "description": "Confirm password.",
+        "expected_outcome": "Password confirmation should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input[name='repeatedPassword']\", \"Test@12345\")"
+        }
+      },
+      {
+        "step_id": "STEP_16",
+        "description": "Click Register button.",
+        "expected_outcome": "Customer registration should be submitted.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"input[value='Register']\")"
+        }
+      },
+      {
+        "step_id": "STEP_17",
+        "description": "Verify customer account is created.",
+        "expected_outcome": "Welcome message should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"text=Your account was created successfully\")"
+        }
+      },
+      {
+        "step_id": "STEP_18",
+        "description": "Click Open New Account link.",
+        "expected_outcome": "Open New Account page should open.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"text=Open New Account\")"
+        }
+      },
+      {
+        "step_id": "STEP_19",
+        "description": "Verify Open New Account form is visible.",
+        "expected_outcome": "Open New Account form should be displayed."
+      },
+      {
+        "step_id": "STEP_20",
+        "description": "Select Savings account type.",
+        "expected_outcome": "Savings account type should be selected.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.select_option(\"select#type\", label=\"SAVINGS\")"
+        }
+      },
+      {
+        "step_id": "STEP_21",
+        "description": "Click Open New Account button.",
+        "expected_outcome": "New savings account should be created.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"input[value='Open New Account']\")"
+        }
+      },
+      {
+        "step_id": "STEP_22",
+        "description": "Verify new account is opened.",
+        "expected_outcome": "Account opened confirmation should be displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.wait_for_selector(\"text=Account Opened!\")"
+        }
+      },
+      {
+        "step_id": "STEP_23",
+        "description": "Click Transfer Funds link.",
+        "expected_outcome": "Transfer Funds page should open.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.click(\"text=Transfer Funds\")"
+        }
+      },
+      {
+        "step_id": "STEP_24",
+        "description": "Enter transfer amount.",
+        "expected_outcome": "Transfer amount should be entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "playwright",
+          "raw_code": "await page.fill(\"input#amount\", \"50\")"
+        }
+      },
+      {
+        "step_id": "STEP_25",
+        "description": "Click Transfer button.",
+        "expected_outcome": "Funds transfer should be completed."
+      }
+    ]
+  }
+}

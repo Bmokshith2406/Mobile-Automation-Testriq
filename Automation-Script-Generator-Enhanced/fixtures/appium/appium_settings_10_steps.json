@@ -1,0 +1,117 @@
+{
+  "test_case": {
+    "test_case_id": "APPIUM_SETTINGS_NAVIGATION_010",
+    "description": "Appium test to open Android Settings sections and return to the main Settings screen.",
+    "target_framework": "appium",
+    "appium_config": {
+      "device_name": "Pixel 6",
+      "app_package": "com.android.settings",
+      "app_activity": ".Settings",
+      "no_reset": true,
+      "relaunch_before_test": true,
+      "relaunch_before_step_retry": true
+    },
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Open Network & internet settings.",
+        "expected_outcome": "Network & internet settings page opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Network & internet']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Return to the main Settings screen from Network & internet.",
+        "expected_outcome": "Main Settings screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Navigate up\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Open Connected devices settings.",
+        "expected_outcome": "Connected devices settings page opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Connected devices']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Return to the main Settings screen from Connected devices.",
+        "expected_outcome": "Main Settings screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Navigate up\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_05",
+        "description": "Open Apps settings.",
+        "expected_outcome": "Apps settings page opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Apps']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_06",
+        "description": "Return to the main Settings screen from Apps.",
+        "expected_outcome": "Main Settings screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Navigate up\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_07",
+        "description": "Open Notifications settings.",
+        "expected_outcome": "Notifications settings page opens.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Notifications']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_08",
+        "description": "Return to the main Settings screen from Notifications.",
+        "expected_outcome": "Main Settings screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Navigate up\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_09",
+        "description": "Open Network & internet settings again.",
+        "expected_outcome": "Network & internet settings page opens again.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.XPATH, \"//*[@text='Network & internet']\")\nelement.click()"
+        }
+      },
+      {
+        "step_id": "STEP_10",
+        "description": "Return to the main Settings screen from Network & internet.",
+        "expected_outcome": "Main Settings screen is displayed.",
+        "matched_script": {
+          "language": "python",
+          "framework": "appium",
+          "raw_code": "element = driver.find_element(AppiumBy.ACCESSIBILITY_ID, \"Navigate up\")\nelement.click()"
+        }
+      }
+    ]
+  }
+}

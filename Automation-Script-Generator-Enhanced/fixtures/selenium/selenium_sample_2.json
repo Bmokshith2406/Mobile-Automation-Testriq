@@ -1,0 +1,49 @@
+{
+  "test_case": {
+    "test_case_id": "SELENIUM_THE_INTERNET_LOGIN_002",
+    "description": "Selenium test to login to the-internet.",
+    "target_framework": "selenium",
+    "steps": [
+      {
+        "step_id": "STEP_01",
+        "description": "Navigate to login page.",
+        "expected_outcome": "Login page should load.",
+        "matched_script": {
+          "language": "python",
+          "framework": "selenium",
+          "raw_code": "driver.get(\"https://the-internet.herokuapp.com/login\")"
+        }
+      },
+      {
+        "step_id": "STEP_02",
+        "description": "Enter username.",
+        "expected_outcome": "Username entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "selenium",
+          "raw_code": "element = driver.find_element(By.ID, \"username\")\nelement.send_keys(\"tomsmith\")"
+        }
+      },
+      {
+        "step_id": "STEP_03",
+        "description": "Enter password.",
+        "expected_outcome": "Password entered.",
+        "matched_script": {
+          "language": "python",
+          "framework": "selenium",
+          "raw_code": "element = driver.find_element(By.ID, \"password\")\nelement.send_keys(\"SuperSecretPassword!\")"
+        }
+      },
+      {
+        "step_id": "STEP_04",
+        "description": "Click Login.",
+        "expected_outcome": "User is logged in.",
+        "matched_script": {
+          "language": "python",
+          "framework": "selenium",
+          "raw_code": "element = driver.find_element(By.CSS_SELECTOR, \"button[type='submit']\")\nelement.click()"
+        }
+      }
+    ]
+  }
+}

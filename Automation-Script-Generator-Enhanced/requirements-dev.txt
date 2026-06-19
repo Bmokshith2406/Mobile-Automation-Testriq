@@ -1,0 +1,10 @@
+# Development & testing dependencies only
+# Install with: pip install -r requirements-dev.txt
+#
+# These are NOT needed in production containers.
+# Keep them out of requirements.txt to avoid bloating the Docker image.
+
+pytest>=7.4.0,<9
+pytest-asyncio>=0.23.0,<1
+pytest-cov>=4.1.0,<6
+httpx>=0.26.0,<1

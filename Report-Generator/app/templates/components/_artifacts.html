@@ -1,0 +1,159 @@
+<div class="tab-content" data-tab="Execution_Video" id="video" style="display:none;margin-bottom:40px;">
+  {% if report.artifacts.execution_video_data %}
+  <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; box-shadow: var(--shadow-xs);">
+    <div style="font-weight:700;font-size:15px;margin-bottom:16px;color:var(--text-primary);">Execution Video</div>
+    <video width="100%" controls style="border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+      <source src="data:{{ report.artifacts.execution_video_media_type }};base64,{{ report.artifacts.execution_video_data }}" type="{{ report.artifacts.execution_video_media_type }}">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  {% else %}
+  <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 40px; text-align: center;">
+    <div style="color: var(--text-tertiary); font-size: 14px;">No execution video available</div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="tab-content" data-tab="Final_Script" id="script" style="display:none;margin-bottom:40px;">
+  {% if report.artifacts.final_script %}
+  <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; box-shadow: var(--shadow-xs);">
+    <div style="font-weight:700;font-size:15px;margin-bottom:16px;color:var(--text-primary);">Final Executed Script</div>
+
+    <div class="script-actions">
+      <button class="script-copy-btn" onclick="copyScript()" aria-label="Copy script to clipboard">📋 Copy to Clipboard</button>
+      <button class="script-copy-btn" onclick="downloadScript('{{ report.artifacts.final_script_filename }}')" aria-label="Download script as Python file">⬇ Download .py</button>
+    </div>
+
+    <pre id="scriptContainer" style="
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+        overflow-x: auto;
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 1.6;
+        color: var(--text-primary);
+    ">{{ report.artifacts.final_script }}</pre>
+    <div id="copyFeedback" class="copy-feedback" style="display: none; margin-top: 12px;">✓ Copied to clipboard</div>
+  </div>
+  {% else %}
+  <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 40px; text-align: center;">
+    <div style="color: var(--text-tertiary); font-size: 14px;">No final script available</div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="tab-content" data-tab="Repair_Report" id="repair" style="display:none;margin-bottom:40px;">
+{% if report.artifacts.repair_report %}
+<section class="repair-report-container" style="background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:28px; box-shadow:var(--shadow-xs);">
+  <header class="repair-report-header" style="margin-bottom:22px">
+    <div style="font-weight:700;font-size:15px;color:var(--text-primary)">Repair Report</div>
+  </header>
+
+  <section class="repair-report-stats" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-bottom:28px;">
+    <div class="stat-card">
+      <div class="stat-label">Execution ID</div>
+      <div style="font-weight:600;font-size:14px">{{ report.artifacts.repair_report.get('execution_id', 'N/A') }}</div>
+    </div>
+
+    <div class="stat-card {% if report.artifacts.repair_report.get('final_status') == 'passed' %}success{% else %}danger{% endif %}">
+      <div class="stat-label">Final Status</div>
+      <div class="stat-value">{{ report.artifacts.repair_report.get('final_status', 'UNKNOWN') | upper }}</div>
+    </div>
+
+    <div class="stat-card info">
+      <div class="stat-label">Iterations</div>
+      <div class="stat-value">{{ report.artifacts.repair_report.get('iterations', 0) }}</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Timestamp</div>
+      <div style="font-size:13px">{{ report.artifacts.repair_report.get('timestamp', 'N/A') }}</div>
+    </div>
+  </section>
+
+  <section class="repair-attempts">
+    <div style="font-weight:600;margin-bottom:12px">Repair Attempts</div>
+    <div class="repair-table-wrapper" style="border:1px solid var(--border); border-radius:10px; overflow:hidden;">
+      <table class="repair-table" style="width:100%; border-collapse:collapse; font-size:13px;">
+        <thead>
+          <tr style="background:var(--bg-secondary); border-bottom:1px solid var(--border);">
+            <th style="text-align:left;padding: 10px 12px">Attempt</th>
+            <th style="text-align:left;padding:10px 12px">Outcome</th>
+            <th style="text-align:left;padding:10px 12px">Step</th>
+            <th style="text-align:left;padding:10px 12px">Timestamp</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for r in report.artifacts.repair_report.get('repairs', []) %}
+          <tr style="border-bottom:1px solid var(--border-light); cursor:pointer;" onclick="toggleRepair('{{ loop.index }}')">
+            <td style="padding:12px">{{ r.get('attempt', 'N/A') }}</td>
+            <td style="padding:12px">
+              <span class="badge {% if r.get('outcome') == 'patched' or r.get('outcome') == 'fallback_patched' %}passed{% else %}failed{% endif %}">
+                {{ r.get('outcome', 'N/A') }}
+              </span>
+            </td>
+            <td style="padding:12px;font-weight:600;">{{ r.get('display_step_name', r.get('step_id', 'N/A')) }}</td>
+            <td style="padding:12px">{{ r.get('timestamp', 'N/A') }}</td>
+          </tr>
+
+          <tr id="repair-{{ loop.index }}" style="display:none;background:var(--bg)">
+            <td colspan="4" style="padding:24px">
+              <div style="background:var(--bg-secondary); border:1px solid var(--border); border-radius:10px; padding:20px;">
+                <div class="repair-details-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                  <div class="block ai-block">
+                    <span class="block-label">Failure Reason</span>
+                    <div class="block-content">{{ r.get('explanation', {}).get('failure_reason', 'N/A') }}</div>
+                  </div>
+
+                  <div class="block ai-block">
+                    <span class="block-label">Repair Action</span>
+                    <div class="block-content">{{ r.get('explanation', {}).get('repair_action', 'N/A') }}</div>
+                  </div>
+
+                  <div class="block">
+                    <span class="block-label">Why Previous Execution Failed</span>
+                    <div class="block-content">{{ r.get('explanation', {}).get('why_previous_failed', 'N/A') }}</div>
+                  </div>
+
+                  {% if r.get('outcome') != 'failed' %}
+                  <div class="block">
+                    <span class="block-label">Why Repair Passed</span>
+                    <div class="block-content">{{ r.get('explanation', {}).get('why_repair_passed', 'N/A') }}</div>
+                  </div>
+                  {% else %}
+                  <div class="block" style="border-color: rgba(220, 38, 38, 0.25); background: rgba(220, 38, 38, 0.04);">
+                    <span class="block-label" style="color: var(--danger)">Why Repair Passed (Failed in rerun)</span>
+                    <div class="block-content" style="text-decoration: line-through; color: var(--text-secondary)">
+                      {{ r.get('explanation', {}).get('why_repair_passed', 'N/A') }}
+                    </div>
+                  </div>
+                  {% endif %}
+
+                  <div class="block">
+                    <span class="block-label">Failure Type</span>
+                    <div class="block-content">{{ r.get('explanation', {}).get('failure_type', 'N/A') }}</div>
+                  </div>
+
+                  <div class="block">
+                    <span class="block-label">Repair Summary</span>
+                    <div class="block-content">{{ r.get('explanation', {}).get('summary', 'N/A') }}</div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</section>
+{% else %}
+<div style="background:var(--bg-secondary); border:1px solid var(--border); border-radius:12px; padding:40px; text-align:center;">
+  <div style="color:var(--text-tertiary);font-size:14px">No repair report available</div>
+</div>
+{% endif %}
+</div>

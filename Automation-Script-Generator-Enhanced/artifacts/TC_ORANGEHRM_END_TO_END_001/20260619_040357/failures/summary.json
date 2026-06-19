@@ -1,0 +1,89 @@
+{
+  "test_case_id": "TC_ORANGEHRM_END_TO_END_001",
+  "run_id": "20260619_040357",
+  "status": "failed",
+  "error": "TimeoutError: Page.wait_for_selector: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator(\"text=Add button\") to be visible\n",
+  "steps": [
+    {
+      "step_index": 0,
+      "step_name": "0__step_0_ecb40f97ce06",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 6.0934,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "ecb40f97ce06"
+    },
+    {
+      "step_index": 1,
+      "step_name": "1__step_1_2f2a76d5f50f",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.3532,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "2f2a76d5f50f"
+    },
+    {
+      "step_index": 2,
+      "step_name": "2__step_2_1237962fe4d5",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0549,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "1237962fe4d5"
+    },
+    {
+      "step_index": 3,
+      "step_name": "3__step_3_614ee9a22cfa",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.0479,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "614ee9a22cfa"
+    },
+    {
+      "step_index": 4,
+      "step_name": "4__step_4_6b5475bea476",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 1.5468,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "6b5475bea476"
+    },
+    {
+      "step_index": 5,
+      "step_name": "5__step_5_174a1b43bff1",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 0.464,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "174a1b43bff1"
+    },
+    {
+      "step_index": 6,
+      "step_name": "6__step_6_c2c1b525b933",
+      "attempts": 1,
+      "max_retries": 1,
+      "duration_total_sec": 1.3247,
+      "status": "passed",
+      "flaky": false,
+      "step_code_hash": "c2c1b525b933"
+    },
+    {
+      "step_index": 7,
+      "step_name": "7__step_7_d3afc936681c",
+      "attempts": 2,
+      "max_retries": 1,
+      "duration_total_sec": 21.4148,
+      "status": "failed",
+      "flaky": false,
+      "step_code_hash": "d3afc936681c"
+    }
+  ],
+  "failed_step_index": 7
+}

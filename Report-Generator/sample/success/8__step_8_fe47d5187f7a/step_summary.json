@@ -1,0 +1,14 @@
+{
+  "step_index": 8,
+  "step_name": "8__step_8_fe47d5187f7a",
+  "intent": "Click button with value 'Open New Account'.",
+  "started_at": "2026-03-01T14:08:56.776948+00:00",
+  "ended_at": "2026-03-01T14:08:56.811935+00:00",
+  "duration_sec": 0.0351,
+  "url": "https://parabank.parasoft.com/parabank/openaccount.htm",
+  "attempts": 1,
+  "max_retries": 1,
+  "status": "passed",
+  "flaky": false,
+  "step_code_hash": "fe47d5187f7a"
+}
